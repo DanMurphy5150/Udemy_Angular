@@ -29,3 +29,5 @@ export class AppComponent {
     });
   }
 }
+
+// @ViewChild('serverContentInput', {static: true}) serverContentInput: ElementRef;
