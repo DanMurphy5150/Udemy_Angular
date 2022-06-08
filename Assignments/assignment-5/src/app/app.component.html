@@ -5,7 +5,7 @@
         Only show odd numbers
       </button>
       <br /><br />
-      <ul class="list-group">
+      <!-- <ul class="list-group">
         <div *ngIf="onlyOdd">
           <li
             class="list-group-item"
@@ -22,17 +22,32 @@
           <li
             class="list-group-item"
             [ngClass]="{ odd: number % 2 !== 0 }"
-            [ngStyle]="{
-              backgroundColor: number % 2 === 0 ? 'green' : 'transparent'
-            }"
             *ngFor="let number of evenNumbers"
           >
             {{ number }}
           </li>
         </div>
-      </ul>
-      <ng-template [ngIf]="onlyOdd">
-        <p>Only odd</p>
+      </ul> -->
+      <div *appUnless="onlyOdd">
+        <li
+          class="list-group-item"
+          [ngClass]="{ odd: number % 2 !== 0 }"
+          [ngStyle]="{
+            backgroundColor: number % 2 !== 0 ? 'yellow' : 'transparent'
+          }"
+          *ngFor="let number of oddNumbers"
+        >
+          {{ number }}
+        </li>
+      </div>
+      <p appBasicHighlight>Style me with Basic Directive!</p>
+      <p appBetterHighlight>Style me with Basic Directive!</p>
+      <p appBetterHighlight [defaultColor]="'red'" [highlightColor]="'black'">
+        Style me with Basic Directive!
+      </p>
+
+      <ng-template [ngIf]="!onlyOdd">
+        <h4>I am an NG Tmeplate</h4>
       </ng-template>
     </div>
   </div>
